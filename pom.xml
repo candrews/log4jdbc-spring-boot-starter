@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.integralblue</groupId>
 	<artifactId>log4jdbc-spring-boot-starter</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>Starter for using Log4jdbc with Spring Boot</name>
 	<description>Starter for using Log4jdbc with Spring Boot</description>
 	<licenses>
