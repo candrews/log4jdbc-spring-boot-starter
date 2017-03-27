@@ -1,0 +1,19 @@
+target
+
+# Eclipse
+.pmd
+.checkstyle
+.classpath
+.project
+.settings
+.factorypath
+.springBeans
+
+# Intellij
+.idea
+*.iml
+*.iws
+
+# Mac
+.DS_Store
+/.apt_generated/
