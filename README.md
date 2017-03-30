@@ -23,6 +23,10 @@ Quick Start
     <version>[INSERT VERSION HERE]</version>
   </dependency>
 ```
+* **Configure** — In application.properties, enable a logger (for example, `logging.level.jdbc.sqlonly=ERROR`). See [Loggers](#loggers) for details.
+
+Configuration
+=============
 Use application.properties to configure log4jdbc. There is [Spring configuration meta-data](http://docs.spring.io/spring-boot/docs/current/reference/html/configuration-metadata.html) for IDE autocompletion; see [spring-configuration-metadata.json](src/main/resources/META-INF/spring-configuration-metadata.json). Supported settings are:
 
 |property                                     |default                                           | description 
@@ -48,6 +52,9 @@ Use application.properties to configure log4jdbc. There is [Spring configuration
 |log4jdbc.suppress.generated.keys.exception   |false                                             |Set to true to ignore any exception produced by the method `Statement.getGeneratedKeys()`
 |log4jdbc.log4j2.properties.file              |log4jdbc.log4j2.properties                        |Set the name of the property file to use 
 
+
+Loggers
+=======
 Note that, by default, nothing will be logged. In fact, if all the loggers are disabled (which is the default), then log4jdbc doesn't even wrap the `java.sql.Connection` returned by `javax.sql.DataSource.getConnection()` (which is useful for production configurations).
 
 |logger              |description
