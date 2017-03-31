@@ -33,9 +33,10 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @ConditionalOnClass(DataSourceSpy.class)
 @AutoConfigureAfter(DataSourceAutoConfiguration.class)
+@SuppressWarnings("checkstyle:hideutilityclassconstructor")
 public class Log4jdbcAutoConfiguration {
 	@Bean
-	public Log4jdbcBeanPostProcessor log4jdbcBeanPostProcessor() {
+	public static Log4jdbcBeanPostProcessor log4jdbcBeanPostProcessor() {
 		return new Log4jdbcBeanPostProcessor();
 	}
 }
