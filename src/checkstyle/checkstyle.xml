@@ -10,8 +10,14 @@
 		<property name="lineSeparator" value="lf"/>
 	</module>
 
+	<!-- Filter out Checkstyle warnings that have been suppressed with the @SuppressWarnings annotation -->
+	<module name="SuppressWarningsFilter" />
+
 	<!-- TreeWalker Checks -->
 	<module name="com.puppycrawl.tools.checkstyle.TreeWalker">
+		<!-- Make the @SuppressWarnings annotations available to Checkstyle -->
+		<module name="SuppressWarningsHolder" />
+
 		<!-- Annotations -->
 		<module name="com.puppycrawl.tools.checkstyle.checks.annotation.AnnotationUseStyleCheck">
 			<property name="elementStyle" value="compact" />
