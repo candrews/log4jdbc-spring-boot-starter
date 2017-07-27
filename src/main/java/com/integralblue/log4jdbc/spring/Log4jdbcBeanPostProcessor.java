@@ -67,17 +67,17 @@ public class Log4jdbcBeanPostProcessor implements BeanPostProcessor {
 
 	@Override
 	public Object postProcessBeforeInitialization(final Object bean, final String beanName) throws BeansException {
-		return bean;
-	}
-
-	@Override
-	public Object postProcessAfterInitialization(final Object bean, final String beanName) throws BeansException {
 		if (bean instanceof DataSource) {
 			return new DataSourceSpy((DataSource) bean);
 		}
 		else {
 			return bean;
 		}
+	}
+
+	@Override
+	public Object postProcessAfterInitialization(final Object bean, final String beanName) throws BeansException {
+		return bean;
 	}
 
 	@PostConstruct
