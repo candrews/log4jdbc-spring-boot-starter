@@ -63,6 +63,7 @@ public class Log4jdbcBeanPostProcessor implements BeanPostProcessor {
 			"log4jdbc.trim.sql.extrablanklines",
 			"log4jdbc.suppress.generated.keys.exception",
 			"log4jdbc.log4j2.properties.file",
+			"log4jdbc.spylogdelegator.name",
 			};
 
 	@Override
