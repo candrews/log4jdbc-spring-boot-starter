@@ -14,7 +14,7 @@ Log4jdbc is particularly handy as it can log SQL that is ready to run. Instead o
 
 Quick Start
 ===========
-* **Minimum requirements** — You'll need Java 1.7+ and Spring Boot 1.4+.
+* **Minimum requirements** — You'll need Java 1.8+ and Spring Boot 2.1+.
 * **Download** — Depend on this library using, for example, Maven:
 ```xml
   <dependency>
