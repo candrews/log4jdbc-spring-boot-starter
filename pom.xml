@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>com.jcabi</groupId>
 		<artifactId>parent</artifactId>
-		<version>0.48.4</version>
+		<version>0.49.5</version>
 	</parent>
 	<groupId>com.integralblue</groupId>
 	<artifactId>log4jdbc-spring-boot-starter</artifactId>
