@@ -130,7 +130,7 @@
 					<targetJdk>${maven.compiler.target}</targetJdk>
 					<sourceEncoding>${project.build.sourceEncoding}</sourceEncoding>
 					<rulesets>
-						<ruleset>${basedir}/.pmdruleset.xml</ruleset>
+						<ruleset>${basedir}/pmdruleset.xml</ruleset>
 					</rulesets>
 				</configuration>
 				<executions>

@@ -2,6 +2,7 @@ target
 
 # Eclipse
 .pmd
+.pmdruleset.xml
 .checkstyle
 .classpath
 .project
