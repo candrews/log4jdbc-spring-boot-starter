@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="M2Eclipse PMD RuleSet" xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 http://pmd.sourceforge.net/ruleset_2_0_0.xsd" xmlns="http://pmd.sourceforge.net/ruleset/2.0.0">
 <description/>
-<exclude-pattern>.*/home/candrews/projects/log4jdbc-spring-boot-starter/src/test/java.*</exclude-pattern>
-<exclude-pattern>.*/home/candrews/projects/log4jdbc-spring-boot-starter/target.*</exclude-pattern>
+<exclude-pattern>src/test/java.*</exclude-pattern>
+<exclude-pattern>target.*</exclude-pattern>
 <rule ref="rulesets/java/basic.xml"/>
 <rule ref="rulesets/java/braces.xml"/>
 <rule ref="rulesets/java/codesize.xml"/>
