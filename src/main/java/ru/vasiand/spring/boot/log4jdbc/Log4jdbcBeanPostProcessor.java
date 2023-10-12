@@ -14,11 +14,10 @@
  * limitations under the License.
  */
 
-package com.integralblue.log4jdbc.spring;
+package ru.vasiand.spring.boot.log4jdbc;
 
-import javax.annotation.PostConstruct;
-import javax.sql.DataSource;
 
+import jakarta.annotation.PostConstruct;
 import net.sf.log4jdbc.log.slf4j.Slf4jSpyLogDelegator;
 import net.sf.log4jdbc.sql.jdbcapi.DataSourceSpy;
 
@@ -27,15 +26,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.core.env.Environment;
 
+import javax.sql.DataSource;
+
 /**
  * A {@link BeanPostProcessor} implementation that sets up log4jdbc logging.
- * To do so, it:
- * <ul>
- * <li>Copies log4jdbc configuration properties from the Spring {@link Environment} to system properties (log4jdbc only reads system properties)</li>
- * <li>Wraps {@link DataSource} beans with {@link DataSourceSpy}</li>
- * </ul>
  *
- * @author Craig Andrews
  * @see net.sf.log4jdbc.Properties
  */
 public class Log4jdbcBeanPostProcessor implements BeanPostProcessor {
@@ -43,26 +38,25 @@ public class Log4jdbcBeanPostProcessor implements BeanPostProcessor {
 	private Environment environment;
 
 	private static final String[] PROPERTIES_TO_COPY = {
-			"log4jdbc.log4j2.properties.file",
+			"log4jdbc.auto.load.popular.drivers",
 			"log4jdbc.debug.stack.prefix",
-			"log4jdbc.sqltiming.warn.threshold",
-			"log4jdbc.sqltiming.error.threshold",
+			"log4jdbc.drivers",
 			"log4jdbc.dump.booleanastruefalse",
 			"log4jdbc.dump.fulldebugstacktrace",
-			"log4jdbc.dump.sql.maxlinelength",
-			"log4jdbc.statement.warn",
-			"log4jdbc.dump.sql.select",
-			"log4jdbc.dump.sql.insert",
-			"log4jdbc.dump.sql.update",
-			"log4jdbc.dump.sql.delete",
-			"log4jdbc.dump.sql.create",
 			"log4jdbc.dump.sql.addsemicolon",
-			"log4jdbc.auto.load.popular.drivers",
-			"log4jdbc.drivers",
+			"log4jdbc.dump.sql.create",
+			"log4jdbc.dump.sql.delete",
+			"log4jdbc.dump.sql.insert",
+			"log4jdbc.dump.sql.maxlinelength",
+			"log4jdbc.dump.sql.select",
+			"log4jdbc.dump.sql.update",
+			"log4jdbc.log4j2.properties.file",
+			"log4jdbc.sqltiming.error.threshold",
+			"log4jdbc.sqltiming.warn.threshold",
+			"log4jdbc.statement.warn",
+			"log4jdbc.suppress.generated.keys.exception",
 			"log4jdbc.trim.sql",
 			"log4jdbc.trim.sql.extrablanklines",
-			"log4jdbc.suppress.generated.keys.exception",
-			"log4jdbc.log4j2.properties.file",
 			};
 
 	@Override
@@ -86,7 +80,7 @@ public class Log4jdbcBeanPostProcessor implements BeanPostProcessor {
 		// See net.sf.log4jdbc.Properties.getProperties()
 		for (final String property : PROPERTIES_TO_COPY) {
 			if (this.environment.containsProperty(property)) {
-				System.setProperty(property, this.environment.getProperty(property));
+				System.setProperty(property, this.environment.getRequiredProperty(property));
 			}
 		}
 		// Use slf4j by default.

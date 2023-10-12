@@ -1,2 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.integralblue.log4jdbc.spring.Log4jdbcAutoConfiguration
-

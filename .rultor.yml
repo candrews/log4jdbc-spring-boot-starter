@@ -1,18 +1,6 @@
 docker:
-  image: yegor256/java8
-decrypt:
-  settings.xml: "repo/settings.xml.asc"
-  pubring.gpg: "repo/pubring.gpg.asc"
-  secring.gpg: "repo/secring.gpg.asc"
+  image: "gradle:jdk17-alpine"
 merge:
-  fast-forward: no
+  fast-forward: yes
   script: |
-    ./mvnw clean install -Prultor -Psonatype --settings /home/r/settings.xml -B -e
-deploy:
-  script: |
-    ./mvnw clean install nexus-staging:deploy -Prultor -Psonatype --settings /home/r/settings.xml -B -e
-release:
-  script: |
-    ./mvnw versions:set "-DnewVersion=${tag}"
-    git commit -am "${tag}"
-    ./mvnw clean deploy -Prultor -Psonatype --settings /home/r/settings.xml -B -e
+    ./gradlew check /home/r/settings.xml -B -e
